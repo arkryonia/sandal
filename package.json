@@ -1,0 +1,27 @@
+{
+  "name": "sandal",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drxos/sandal.git"
+  },
+  "keywords": [],
+  "author": "Hodonou Sounton <sounton@gmail.com> (https://sounton.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drxos/sandal/issues"
+  },
+  "homepage": "https://github.com/drxos/sandal#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mongoose": "^4.10.4",
+    "passport": "^0.3.2"
+  }
+}
