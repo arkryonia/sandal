@@ -26,7 +26,8 @@
     "express-session": "^1.15.3",
     "mongoose": "^4.10.4",
     "mongoose-bcrypt": "^1.4.2",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "mocha": "^3.4.2"

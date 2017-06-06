@@ -1,0 +1,26 @@
+{
+  "name": "sandal",
+  "description": "sandal ui",
+  "main": "server.js",
+  "authors": [
+    "Hodonou Sounton <sounton@gmail.com> (https://sounton.me/)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "sandal",
+    "drxos"
+  ],
+  "homepage": "https://github.com/drxos/sandal",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/theme/assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "bootstrap": "4.0"
+  }
+}
