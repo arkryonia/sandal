@@ -13,7 +13,8 @@ block section
     tbody
       each u in users
         tr
-          th(scope='row') #{u.username}
+          th(scope='row')
+            a(href="/user/" + u.username) #{u.username}
           td #{u.email}
           //- td #{u.password}
       

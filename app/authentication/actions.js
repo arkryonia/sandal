@@ -22,9 +22,28 @@ module.exports = {
       res.redirect('/user/list')
     })
   },
+  getlogin: (req, res, next) => {
+    res.render('login')
+  },
+  postlogin: (req, res, next) => {
+    const username = req.body.username
+    User.findOne({username: username}, (err, user) => {
+      if (err) next(err)
+      res.send(user)
+      user.verifyPassword(req.body.password, (err, valid) => {
+        if (err) next(err)
+        if (valid) {
+          console.log('valid ------------------:)')
+        } else {
+          console.log('invalid ----------------:((');
+        }
+      })
+    })
+  },
   read: (req, res, next) => {
-    let username = req.params.username
-    res.send(`Read user : ${username}`)
+    User.findOne({username: req.params.username}, (err, user) => {
+      res.send(`Read user : ${user.username}`)
+    })
   },
   update: (req, res, next) => {
     res.send('Update a user')

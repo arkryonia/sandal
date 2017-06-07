@@ -1,0 +1,14 @@
+extends ../../theme/layout
+
+block header             
+  | User login
+
+block section
+  form(action="/user/login" method="post")    
+    .form-group
+      label(for='username') Username
+      input.form-control(type='text', name='username' placeholder='holder')    
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', name='password' placeholder='holder')    
+    button.btn.btn-primary(type="submit") Submit
