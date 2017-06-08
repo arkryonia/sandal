@@ -1,11 +1,13 @@
-const express = require('express')
-const port = 2000
+const express   = require('express')
 
-const app = express()
+const app       = express()
 
 const auth = require('./app/authentication/index.js')
-const mongo = require('./config/mongo')
-mongo.connect()
+
+require('dotenv').config()
+require('./config/mongo').connect()
+
+const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
   res.redirect('/user/list')

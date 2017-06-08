@@ -1,4 +1,8 @@
-TODO The Project Design
-TODO Implement CRUD Actions on User Model
-TODO Setup Passport Middleware
-TODO Prepare the project for deployment
+TODO : Home Page
+TODO : Login Page
+TODO : Signup Page
+TODO : Handle the POST for Login
+TODO : Handle the POST for Signup
+TODO : Profile Page after Login
+TODO : Implement crsf protection
+TODO : Implement Favicon

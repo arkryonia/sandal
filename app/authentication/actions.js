@@ -28,16 +28,7 @@ module.exports = {
   postlogin: (req, res, next) => {
     const username = req.body.username
     User.findOne({username: username}, (err, user) => {
-      if (err) next(err)
-      res.send(user)
-      user.verifyPassword(req.body.password, (err, valid) => {
-        if (err) next(err)
-        if (valid) {
-          console.log('valid ------------------:)')
-        } else {
-          console.log('invalid ----------------:((');
-        }
-      })
+      
     })
   },
   read: (req, res, next) => {

@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 var mongo = {
   connect: () => {
-    mongoose.connect('mongodb://localhost/sandal', (err) => {
+    mongoose.connect(process.env.DB, (err) => {
       if (err) console.log('mongodb connection failed ', err)
       console.log('mongodb is up and running ...');
     })
