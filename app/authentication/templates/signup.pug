@@ -14,12 +14,12 @@ html
       .col-sm-6.col-sm-offset-3
         h1
           span.fa.fa-sign-in
-          |  Login
+          |  Signup
         // show any messages that come back with authentication
         if message.length > 0
           .alert.alert-danger #{message}
         
-        form(action="/user/login" method="post")
+        form(action="/user/signup" method="post")
           .form-group
             label(for='email') Email
             input.form-control(type='email', name='email' placeholder='email@email.com')
@@ -30,8 +30,8 @@ html
         
         hr
         
-        p Need an account ? 
-          a(href="/user/signup") Signup
+        p Already have an account ? 
+          a(href="/user/login") Login
           |.
         
         p 

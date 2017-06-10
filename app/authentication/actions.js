@@ -7,39 +7,27 @@ module.exports = {
       res.render('index', {users: users})
     })
   },
-  getcreate: (req, res, next) => {
-    res.render('create')
-  },
-  postcreate: (req, res, next) => {
-    var user = new User({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password
-    })
-
-    User.create(user, (err, user) => {
-      if(err) next(err)
-      res.redirect('/user/list')
-    })
-  },
   getlogin: (req, res, next) => {
-    res.render('login')
+    res.render('login', { message: req.flash('loginMessage')})
   },
   postlogin: (req, res, next) => {
-    const username = req.body.username
-    User.findOne({username: username}, (err, user) => {
-      
-    })
+
   },
-  read: (req, res, next) => {
-    User.findOne({username: req.params.username}, (err, user) => {
-      res.send(`Read user : ${user.username}`)
-    })
+  getsignup: (req, res, next) => {
+    res.render('signup', { message: req.flash('signupMessage') })
   },
-  update: (req, res, next) => {
-    res.send('Update a user')
+  postsignup: (req, res, next) => {
+    res.render('signup', { message: req.flash('signupMessage') })
   },
-  delete: (req, res, next) => {
-    res.send('Delete a user')
+  profile: (req, res, next) => {
+    res.render('profile', {user: req.user})
+  },
+  logout: (req, res) => {
+    req.logout()
+    res.redirect('/user/login')
+  },
+  isLoggedIn: (req, res, next) => {
+    if (req.isAuthenticated()) return next()
+    res.redirect('/user/login')
   }
 }

@@ -20,6 +20,10 @@ const app = express()
 app.set('view engine', 'pug')
 app.set('views', path.join(rootdir, 'app/authentication/templates'))
 
+// passport --------------------------------------------------------------------
+
+require('./config/passport')(passport);
+
 // set middlewares -------------------------------------------------------------
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -28,13 +32,10 @@ app.use(morgan('dev'))
 app.use('/user', express.static(path.join(rootdir, 'app/theme/assets')))
 app.use(session({secret: 'sdfjhghkqgh5', resave:false, saveUninitialized:true}))
 app.use(cookieParser())
-app.use('/user', route)
-
-// -----------------------------------------------------------------------------
-
+app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(flash())
 
+app.use('/user', route)
 
 module.exports = app
