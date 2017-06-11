@@ -77,3 +77,8 @@ body {
     border-bottom: 0;
   }
 }
+
+p {
+  font-family: 'Open Sans', 'Ubuntu', sans-serif;
+  font-size: 1.2em;
+}

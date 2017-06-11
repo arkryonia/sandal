@@ -48,10 +48,11 @@ module.exports = (passport) => {
     (req, email, password, done) => {
       User.findOne({'local.email': email}, (err, user) => {
         if (err) { return done(err) }
+        console.log()
         if (!user) {
           return done(null, false, req.flash('loginMessage', 'Incorrect username'))
         }
-        if(!bcrypt.compareSync(password, user.local.password))
+        if(!user.validPassword(password, user))
           return done(null, false, req.flash('loginMessage', 'Wrong password!'))
 
         return done(null, user)

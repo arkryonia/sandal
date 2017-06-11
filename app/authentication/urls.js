@@ -12,7 +12,7 @@ urls.post('/login', passport.authenticate('local-login', {
   successRedirect: '/user/profile',
   failureRedirect: '/user/login',
   failureFlash: true
-}), actions.postlogin)
+}))
 
 urls.get('/signup', actions.getsignup)
 
@@ -20,7 +20,7 @@ urls.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/user/profile',
   failureRedirect: '/user/signup',
   failureFlash: true
-}), actions.postsignup)
+}))
 
 urls.get('/profile', actions.isLoggedIn, actions.profile)
 

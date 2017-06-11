@@ -9,6 +9,8 @@ require('./config/mongo').connect()
 
 const port = process.env.PORT || 3000
 
+app.locals.site = 'Bonjour'
+
 app.get('/', (req, res) => {
   res.redirect('/user/list')
 })

@@ -1,40 +1,24 @@
-doctype html
-html
-  head
-    title Node Authentication
-    |     
-    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css")
-    // load bootstrap css
-    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
-    // load fontawesome
-    style.
-      body        { padding-top:80px; }
-  body
-    .container
-      .col-sm-6.col-sm-offset-3
-        h1
-          span.fa.fa-sign-in
-          |  Signup
-        // show any messages that come back with authentication
-        if message.length > 0
-          .alert.alert-danger #{message}
-        
-        form(action="/user/signup" method="post")
-          .form-group
-            label(for='email') Email
-            input.form-control(type='email', name='email' placeholder='email@email.com')
-          .form-group
-            label(for='password') Password
-            input.form-control(type='password', name='password' placeholder='password')
-          button.btn.btn-warning.btn-lg(type="submit") Submit
-        
-        hr
-        
-        p Already have an account ? 
-          a(href="/user/login") Login
-          |.
-        
-        p 
-          | Or go 
-          a(href="/user") home
-          |.
+extends index
+block content
+  if message.length > 0
+    .alert.alert-danger #{message}
+  
+  form(action="/user/signup" method="post")
+    .form-group
+      label(for='email') Email
+      input.form-control(type='email', name='email' placeholder='email@email.com')
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', name='password' placeholder='password')
+    button.btn.btn-warning.btn-lg(type="submit") Submit
+  
+  hr
+  
+  p Already have an account ? 
+    a(href="/user/login") Login
+    |.
+  
+  p 
+    | Or go 
+    a(href="/user") home
+    |.

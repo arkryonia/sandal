@@ -16,6 +16,8 @@ html(lang='en')
     // Custom styles for this template
     link(href='css/jumbotron-narrow.css', rel='stylesheet')
     link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet")
+
     // Just for debugging purposes. Don't actually copy these 2 lines!
     //if lt IE 9
       script(src='js/ie8-responsive-file-warning.js')
@@ -39,12 +41,10 @@ html(lang='en')
           img(src="img/logo.svg", alt="logo")
               
       .row.marketing
-        .col-lg-12                    
-          h2.text-info
-            block header
-              a(href="#")                
-                Bonjour à tous
-          block section
+        .col-lg-12
+          h2.text-info          
+            a(href="#") #{title}
+          block content            
             p
               | Donec id elit non mi porta gravida at eget metus. Maecenas 
               | faucibus mollis interdum.

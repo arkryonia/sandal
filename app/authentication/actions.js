@@ -4,14 +4,11 @@ module.exports = {
   list: (req, res, next) =>{
     User.find((err, users) => {
       if (err) next(err)
-      res.render('index', {users: users})
+      res.render('index', {users: users, title: 'Authentication'})
     })
   },
   getlogin: (req, res, next) => {
-    res.render('login', { message: req.flash('loginMessage')})
-  },
-  postlogin: (req, res, next) => {
-
+    res.render('login', { message: req.flash('loginMessage'), title: 'Login user'})
   },
   getsignup: (req, res, next) => {
     res.render('signup', { message: req.flash('signupMessage') })
