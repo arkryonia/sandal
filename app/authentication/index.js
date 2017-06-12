@@ -15,6 +15,8 @@ const rootdir = process.cwd()
 const route = require('./urls')
 
 const app = express()
+app.locals.site = 'My App';
+app.locals.email = 'me@myapp.com';
 
 // View engine -----------------------------------------------------------------
 
