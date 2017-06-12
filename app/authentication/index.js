@@ -9,6 +9,7 @@ const cookieParser  = require('cookie-parser')
 const mongoose      = require('mongoose')
 const flash         = require('connect-flash')
 const morgan        = require('morgan')
+const csrf          = require('csurf')
 // locale requirements ---------------------------------------------------------
 const rootdir = process.cwd()
 const route = require('./urls')
@@ -35,7 +36,14 @@ app.use(cookieParser())
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(csrf({ cookie: true}))
+app.use(function (req, res, next) {
+  res.cookie('XSRF-TOKEN', req.csrfToken());
+  res.locals.csrftoken = req.csrfToken();
+  next();
+});
 
 app.use('/user', route)
+
 
 module.exports = app

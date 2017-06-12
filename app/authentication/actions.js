@@ -1,3 +1,4 @@
+const passport = require('passport');
 const User = require('./models')
 
 module.exports = {
@@ -8,14 +9,28 @@ module.exports = {
     })
   },
   getlogin: (req, res, next) => {
-    res.render('login', { message: req.flash('loginMessage'), title: 'Login user'})
+    res.render('login', {
+      message: req.flash('loginMessage'),
+      title: 'Login user',
+      csrfToken: req.csrfToken()
+    })
   },
+  postlogin: passport.authenticate('local-login', {
+    successRedirect: '/user/profile',
+    failureRedirect: '/user/login',
+    failureFlash: true
+  }),
   getsignup: (req, res, next) => {
-    res.render('signup', { message: req.flash('signupMessage') })
+    res.render('signup', {
+      message: req.flash('signupMessage'),
+      csrfToken: req.csrfToken()
+    })
   },
-  postsignup: (req, res, next) => {
-    res.render('signup', { message: req.flash('signupMessage') })
-  },
+  postsignup: passport.authenticate('local-signup', {
+    successRedirect: '/user/profile',
+    failureRedirect: '/user/signup',
+    failureFlash: true
+  }),
   profile: (req, res, next) => {
     res.render('profile', {user: req.user})
   },

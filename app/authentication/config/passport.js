@@ -20,7 +20,7 @@ module.exports = (passport) => {
       passwordField: 'password',
       passReqToCallback : true
     },
-    (req, email, password, done) => {
+    (req, email, password, done) => {          
       process.nextTick(() => {
         User.findOne({'local.email': email}, (err, user) => {
           if (err) return done(err)

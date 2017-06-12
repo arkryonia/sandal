@@ -4,6 +4,7 @@ block content
     .alert.alert-danger #{message}
   
   form(action="/user/signup" method="post")
+    input(type="hidden", name="_csrf", value=csrfToken)
     .form-group
       label(for='email') Email
       input.form-control(type='email', name='email' placeholder='email@email.com')
