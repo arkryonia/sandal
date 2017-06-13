@@ -7,7 +7,7 @@ const auth = require('./app/authentication/index.js')
 require('dotenv').config()
 require('./config/mongo').connect()
 
-const port = process.env.PORT || 3000
+const port = process.env.DEV || process.env.PROD
 
 app.use((req, res, next) => {
   let now = new Date()
