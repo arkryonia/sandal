@@ -1,9 +1,11 @@
 extends index
+
 block content
   if message.length > 0
     .alert.alert-danger #{message}
   
   form(action="/user/signup" method="post")
+    h2(class="form-signin-heading text-center") #{title}   
     input(type="hidden", name="_csrf", value=csrfToken)
     .form-group
       label(for='email') Email
@@ -11,15 +13,12 @@ block content
     .form-group
       label(for='password') Password
       input.form-control(type='password', name='password' placeholder='password')
-    button.btn.btn-warning.btn-lg(type="submit") Submit
-  
-  hr
-  
-  p Already have an account ? 
+    button.btn.btn-primary.btn-block(type="submit") Submit
+  br
+  p.text-right Have an account ?  
     a(href="/user/login") Login
-    |.
+    span 
+      | Or 
+      a(href="/") Get Home 
+    
   
-  p 
-    | Or go 
-    a(href="/user") home
-    |.

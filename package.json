@@ -1,7 +1,11 @@
 {
   "name": "sandal",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Tecnonia Node Express Boilerplate",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "nodemon -e js,css,less,sass server.js",
@@ -38,7 +42,6 @@
     "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "mocha": "^3.4.2",
-    "webpack": "^2.6.1"
+    "mocha": "^3.4.2"
   }
 }

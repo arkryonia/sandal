@@ -11,12 +11,14 @@ html(lang='en')
     title #{title} &raquo; SountonME
     // Bootstrap core CSS
     link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet")
     // IE10 viewport hack for Surface/desktop Windows 8 bug
     link(href='css/ie10-viewport-bug-workaround.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='css/jumbotron-narrow.css', rel='stylesheet')
-    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css")
-    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet")
+    block css
+      link(href='css/jumbotron-narrow.css', rel='stylesheet')  
+     
 
     // Just for debugging purposes. Don't actually copy these 2 lines!
     //if lt IE 9
@@ -29,29 +31,29 @@ html(lang='en')
   body
     .container
       .header.clearfix
-        nav
-          ul.nav.nav-pills.pull-right
-            li.active(role='presentation')
-              a(href='#') Home
-            li(role='presentation')
-              a(href='#') About
-            li(role='presentation')
-              a(href='#') Contact
-        a(href="http:sounton.me")
-          img(src="img/logo.svg", alt="logo SountonMe", width=200)
-              
-      .row.marketing
+        block header
+          nav
+            ul.nav.nav-pills.pull-right
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') About
+              li(role='presentation')
+                a(href='#') Contact
+          a(href="http:sounton.me")
+            img(src="img/logo.svg", alt="logo SountonMe", width=200)
+      block content
         .col-lg-12
           h2.text-info          
             a(href="#") #{title}
-          block content            
-            p
+          block section            
+            section
               | Donec id elit non mi porta gravida at eget metus. Maecenas 
               | faucibus mollis interdum.
           
-        
-      footer.footer
-        p © #{site} 2015 - #{date} Powered by Tecnonia, a branch of Bieqe Sarl. 
+      block footer  
+        .footer
+          p © #{site} 2015 - #{date} Powered by Tecnonia, a branch of Bieqe Sarl. 
     // /container
     // IE10 viewport hack for Surface/desktop Windows 8 bug
     script(src='js/ie10-viewport-bug-workaround.js')

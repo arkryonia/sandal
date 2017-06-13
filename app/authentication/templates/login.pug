@@ -1,27 +1,31 @@
 extends index
 
-block content
+block css
+  link(href='css/signin.css', rel='stylesheet') 
+
+block header  
+
+block content  
   // show any messages that come back with authentication
   if message.length > 0
-    .alert.alert-danger #{message}
-  
-  form(action="/user/login" method="post")
+    .alert.alert-danger #{message}  
+  form(action="/user/login" method="post" class="form-signin")
+    <h2 class="form-signin-heading">#{title}</h2>        
     input(type="hidden", name="_csrf", value=csrfToken)
     .form-group
-      label(for='email') Email
+      //- label(for='email') Email
       input.form-control(type='email', name='email' placeholder='email@email.com')
     .form-group
-      label(for='password') Password
+      //- label(for='password') Password
       input.form-control(type='password', name='password' placeholder='password')
-    button.btn.btn-warning.btn-lg(type="submit") Submit
+    
+    button.btn.btn-primary.btn-lg.btn-block(type="submit") Submit
+    br
+    p.text-right Need an account ?
+      a(href="/user/signup") Signup 
+      span Or 
+        a(href="/") Get Home       
         
-  hr
+block footer  
+    
   
-  p Need an account ? 
-    a(href="/user/signup") Signup
-    |.
-  
-  p 
-    | Or go 
-    a(href="/user") home
-    |.

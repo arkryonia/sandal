@@ -23,7 +23,8 @@ module.exports = {
   getsignup: (req, res, next) => {
     res.render('signup', {
       message: req.flash('signupMessage'),
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      title: "Signup..."
     })
   },
   postsignup: passport.authenticate('local-signup', {
@@ -32,7 +33,7 @@ module.exports = {
     failureFlash: true
   }),
   profile: (req, res, next) => {
-    res.render('profile', {user: req.user})
+    res.render('profile', {user: req.user, title: "User Profile"})
   },
   logout: (req, res) => {
     req.logout()
