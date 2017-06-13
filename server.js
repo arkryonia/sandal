@@ -9,7 +9,12 @@ require('./config/mongo').connect()
 
 const port = process.env.PORT || 3000
 
-app.locals.site = 'Bonjour'
+app.use((req, res, next) => {
+  let now = new Date()
+  res.locals.site = 'SountonMe'
+  res.locals.date = now.getFullYear()
+  next()
+})
 
 app.get('/', (req, res) => {
   res.redirect('/user/list')
