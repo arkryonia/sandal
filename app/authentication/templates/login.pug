@@ -6,11 +6,11 @@ block css
 block header  
 
 block content  
-  // show any messages that come back with authentication
-  if message.length > 0
-    .alert.alert-danger #{message}  
+  // show any messages that come back with authentication    
   form(action="/user/login" method="post" class="form-signin")
-    <h2 class="form-signin-heading">#{title}</h2>        
+    if message.length > 0
+      .alert.alert-danger #{message}
+    h2(class="form-signin-heading") #{title}        
     input(type="hidden", name="_csrf", value=csrfToken)
     .form-group
       //- label(for='email') Email

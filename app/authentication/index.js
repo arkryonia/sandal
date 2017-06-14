@@ -15,8 +15,6 @@ const rootdir = process.cwd()
 const route = require('./urls')
 
 const app = express()
-app.locals.site = 'My App';
-app.locals.email = 'me@myapp.com';
 
 // View engine -----------------------------------------------------------------
 
@@ -33,7 +31,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use('/user', express.static(path.join(rootdir, 'app/theme/assets')))
-app.use(session({secret: 'sdfjhghkqgh5', resave:false, saveUninitialized:true}))
+app.use(session({
+  secret: 'sdfjhghkqgh5',
+  resave:false,
+  saveUninitialized:true,
+  name: 'sessionId'
+}))
 app.use(cookieParser())
 app.use(flash())
 app.use(passport.initialize())
