@@ -3,6 +3,7 @@ const helmet    = require('helmet')
 const app       = express()
 
 const auth = require('./app/authentication/index.js')
+const blog = require('./app/blog/index.js')
 
 require('dotenv').config()
 require('./config/mongo').connect()
@@ -17,12 +18,13 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/', (req, res) => {
-  console.log(req.app.get('env'));
-  res.redirect('/user/list')
-})
+// app.get('/', (req, res) => {
+//   console.log(req.app.get('env'));
+//   res.redirect('/auth/user/list')
+// })
 
-app.use(auth)
+app.use('/', blog)
+app.use('/auth', auth)
 
 
 module.exports = app
